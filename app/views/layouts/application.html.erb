@@ -17,8 +17,10 @@
 
     <nav>
       <div class="nav-wrapper light-green">
-
+        <% if user_signed_in? %>
         <a href="/" class="waves-effect waves-light btn teal-text">HOME</a>
+        <% end %>
+
         <ul id="nav-mobile" class="right">
 
           <% if user_signed_in? %>
@@ -28,28 +30,22 @@
             <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn teal-text" %></li>
           <% end %>
 
-          <% if !user_signed_in? %>
-            <li>
-              <a href="/users/sign_in" class="waves-effect waves-light btn purple-text pulse">LOG IN / SIGN-UP</a>
-            </li>
-          <% end %>
-
         </ul>
       </div>
     </nav>
 
-    <% if user_signed_in? %>
-
-      <h4 id="userEmail">
-        <%= current_user.email %></h4>
+<div class="logged">
+  <% if user_signed_in? %>
+Logged in as: <p id="userEmail">
+    <%= current_user.email %></p>
 
     <% end %>
+</div>
+
 
     <div class="container">
       <%= yield %>
     </div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
   </body>
 </html>

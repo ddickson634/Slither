@@ -1,9 +1,13 @@
 <% if !user_signed_in? %>
-  <img src="/assets/slither.png" class="biglogo"/>
+<p class="notice"><%= notice %></p>
+<% end %>
+<% if !user_signed_in? %>
+  <a href="/users/sign_in"><img src="/assets/slither.png" class="biglogo" /></a>
 <% end %>
 
+
 <% if user_signed_in? %>
-  
+<p class="notice"><%= notice %></p>
   <canvas id="snake" width="608" height="608"></canvas>
   <script src="assets/snake.js"></script>
 <% end %>
