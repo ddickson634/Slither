@@ -1,0 +1,16 @@
+<h1>SCORES</h1>
+
+<% @scores.each do |score| %>
+
+  <div class="section">
+    <h2 class="score"><%= score.email %>
+      -
+      <%= score.score %></h2>
+    <p class="date"><%= time_ago_in_words(score.created_at) %>
+      ago</p>
+
+  </div>
+
+<% end %>
+
+<div class="divider"></div>

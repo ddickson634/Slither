@@ -1,0 +1,9 @@
+<% if !user_signed_in? %>
+  <img src="/assets/slither.png" class="biglogo"/>
+<% end %>
+
+<% if user_signed_in? %>
+  
+  <canvas id="snake" width="608" height="608"></canvas>
+  <script src="assets/snake.js"></script>
+<% end %>
