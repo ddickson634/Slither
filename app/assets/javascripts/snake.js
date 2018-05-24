@@ -11,8 +11,8 @@ const box = 32;
 const ground = new Image();
 ground.src = "/assets/ground.png";
 
-const foodImg = new Image();
-foodImg.src = "/assets/food.png";
+const fruitImg = new Image();
+fruitImg.src = "/assets/fruit.png";
 //make snake
 let snake = []
 snake[0] = {
@@ -20,8 +20,8 @@ snake[0] = {
     y: 10 * box
 }
 
-// create food
-let food = {
+// create fruit
+let fruit = {
     x: Math.floor(Math.random() * 17 + 1) * box,
     y: Math.floor(Math.random() * 15 + 3) * box
 }
@@ -77,8 +77,8 @@ function collision(head, array) {
         ctx.strokeRect(snake[i].x, snake[i].y, box, box);
     }
 
-    //draw food
-    ctx.drawImage(foodImg, food.x, food.y);
+    //draw fruit
+    ctx.drawImage(fruitImg, fruit.x, fruit.y);
 
     //old head position
     let snakeX = snake[0].x;
@@ -92,13 +92,13 @@ function collision(head, array) {
     if (d == "RIGHT") snakeX += box;
     if (d == "DOWN") snakeY += box;
 
-    //when snake eats food
-    if (snakeX == food.x && snakeY == food.y) {
+    //when snake eats fruit
+    if (snakeX == fruit.x && snakeY == fruit.y) {
         score++;
-        food = {
+        fruit = {
             x: Math.floor(Math.random() * 17 + 1) * box,
             y: Math.floor(Math.random() * 15 + 3) * box
-        }
+          }
     } else {
 
         //remove tail

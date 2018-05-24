@@ -18,14 +18,14 @@
     <nav>
       <div class="nav-wrapper light-green">
         <% if user_signed_in? %>
-        <a href="/" class="waves-effect waves-light btn teal-text">HOME</a>
+        <a href="/" class=" home waves-effect waves-light btn teal-text">HOME</a>
         <% end %>
 
         <ul id="nav-mobile" class="right">
 
           <% if user_signed_in? %>
             <li>
-              <a href="/scores" class="waves-effect waves-light btn black-text">All Scores</a>
+              <a href="/scores" class="waves-effect waves-light btn black-text">Scores</a>
             </li>
             <li><%= link_to "LOG OUT", destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn teal-text" %></li>
           <% end %>
@@ -36,16 +36,20 @@
 
 <div class="logged">
   <% if user_signed_in? %>
-Logged in as: <p id="userEmail">
-    <%= current_user.email %></p>
-
+Logged in as: &nbsp; <p id="userEmail">
+     <%= current_user.email %></p>
     <% end %>
 </div>
-
 
     <div class="container">
       <%= yield %>
     </div>
 
   </body>
+
+  <footer>
+    <p>
+      Created: May 21st, 2018 for New York Code and Design Academy Final Project
+    </p>
+  </footer>
 </html>
